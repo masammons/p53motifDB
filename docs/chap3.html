@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 The Main Data Table | _main.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 The Main Data Table | _main.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 The Main Data Table | _main.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap2.html"/>
+<link rel="next" href="chap4.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> p53motifDB</a></li>
+<li class="chapter" data-level="2" data-path="chap2.html"><a href="chap2.html"><i class="fa fa-check"></i><b>2</b> General Information</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap2.html"><a href="chap2.html#web-access"><i class="fa fa-check"></i><b>2.1</b> Web access</a></li>
+<li class="chapter" data-level="2.2" data-path="chap2.html"><a href="chap2.html#access-to-raw-data"><i class="fa fa-check"></i><b>2.2</b> Access to raw data</a></li>
+<li class="chapter" data-level="2.3" data-path="chap2.html"><a href="chap2.html#feedback"><i class="fa fa-check"></i><b>2.3</b> Feedback</a></li>
+<li class="chapter" data-level="2.4" data-path="chap2.html"><a href="chap2.html#general-use"><i class="fa fa-check"></i><b>2.4</b> General Use</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap3.html"><a href="chap3.html"><i class="fa fa-check"></i><b>3</b> The Main Data Table</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap3.html"><a href="chap3.html#changing-the-number-of-displayed-rows."><i class="fa fa-check"></i><b>3.1</b> Changing the number of displayed rows.</a></li>
+<li class="chapter" data-level="3.2" data-path="chap3.html"><a href="chap3.html#filter-table-by-search-term."><i class="fa fa-check"></i><b>3.2</b> Filter table by search term.</a></li>
+<li class="chapter" data-level="3.3" data-path="chap3.html"><a href="chap3.html#column-sorting"><i class="fa fa-check"></i><b>3.3</b> Column sorting</a></li>
+<li class="chapter" data-level="3.4" data-path="chap3.html"><a href="chap3.html#hyperlinks"><i class="fa fa-check"></i><b>3.4</b> Hyperlinks</a></li>
+<li class="chapter" data-level="3.5" data-path="chap3.html"><a href="chap3.html#horizontal-scrolling"><i class="fa fa-check"></i><b>3.5</b> Horizontal Scrolling</a></li>
+<li class="chapter" data-level="3.6" data-path="chap3.html"><a href="chap3.html#row-display-characteristics"><i class="fa fa-check"></i><b>3.6</b> Row Display Characteristics</a></li>
+<li class="chapter" data-level="3.7" data-path="chap3.html"><a href="chap3.html#page-navigation-selectors"><i class="fa fa-check"></i><b>3.7</b> Page Navigation Selectors</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap4.html"><a href="chap4.html"><i class="fa fa-check"></i><b>4</b> Filtering</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap4.html"><a href="chap4.html#basic-filters"><i class="fa fa-check"></i><b>4.1</b> Basic Filters</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="chap4.html"><a href="chap4.html#gene-symbolhgnc-filtering"><i class="fa fa-check"></i><b>4.1.1</b> Gene Symbol/HGNC Filtering</a></li>
+<li class="chapter" data-level="4.1.2" data-path="chap4.html"><a href="chap4.html#genomic-coordinate-filtering-by-chromosome-and-location"><i class="fa fa-check"></i><b>4.1.2</b> Genomic coordinate filtering by chromosome and location</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="chap4.html"><a href="chap4.html#p53-binding-filters"><i class="fa fa-check"></i><b>4.2</b> p53 Binding Filters</a></li>
+<li class="chapter" data-level="4.3" data-path="chap4.html"><a href="chap4.html#chromatin-filters"><i class="fa fa-check"></i><b>4.3</b> Chromatin Filters</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap4.html"><a href="chap4.html#candidate-cis-regulatory-elements-ccre"><i class="fa fa-check"></i><b>4.3.1</b> Candidate cis-regulatory elements (cCRE)</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap4.html"><a href="chap4.html#dnase-hypersensitive-sites-dhs"><i class="fa fa-check"></i><b>4.3.2</b> DNAse Hypersensitive Sites (DHS)</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap4.html"><a href="chap4.html#chromhmm"><i class="fa fa-check"></i><b>4.3.3</b> chromHMM</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap4.html"><a href="chap4.html#d-genome-information"><i class="fa fa-check"></i><b>4.4</b> 3D Genome Information</a></li>
+<li class="chapter" data-level="4.5" data-path="chap4.html"><a href="chap4.html#genome-variation"><i class="fa fa-check"></i><b>4.5</b> Genome Variation</a></li>
+<li class="chapter" data-level="4.6" data-path="chap4.html"><a href="chap4.html#other-genomic-variables"><i class="fa fa-check"></i><b>4.6</b> Other Genomic Variables</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="chap4.html"><a href="chap4.html#intergenic-or-intragenic"><i class="fa fa-check"></i><b>4.6.1</b> Intergenic or Intragenic?</a></li>
+<li class="chapter" data-level="4.6.2" data-path="chap4.html"><a href="chap4.html#repetitive-elements"><i class="fa fa-check"></i><b>4.6.2</b> Repetitive Elements</a></li>
+<li class="chapter" data-level="4.6.3" data-path="chap4.html"><a href="chap4.html#encode-blacklist"><i class="fa fa-check"></i><b>4.6.3</b> ENCODE BlackList</a></li>
+<li class="chapter" data-level="4.6.4" data-path="chap4.html"><a href="chap4.html#potential-cg-methylation-sites"><i class="fa fa-check"></i><b>4.6.4</b> Potential CG Methylation Sites</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap5.html"><a href="chap5.html"><i class="fa fa-check"></i><b>5</b> Exporting Filtered Data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap5.html"><a href="chap5.html#select-columns-to-export-button"><i class="fa fa-check"></i><b>5.1</b> Select Columns to Export Button</a></li>
+<li class="chapter" data-level="5.2" data-path="chap5.html"><a href="chap5.html#download-filtered-data-button"><i class="fa fa-check"></i><b>5.2</b> Download Filtered Data Button</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap6.html"><a href="chap6.html"><i class="fa fa-check"></i><b>6</b> Querying Additional Datasets</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap6.html"><a href="chap6.html#clinvar"><i class="fa fa-check"></i><b>6.1</b> ClinVar</a></li>
+<li class="chapter" data-level="6.2" data-path="chap6.html"><a href="chap6.html#dbsnp"><i class="fa fa-check"></i><b>6.2</b> dbSNP</a></li>
+<li class="chapter" data-level="6.3" data-path="chap6.html"><a href="chap6.html#encode-dhs"><i class="fa fa-check"></i><b>6.3</b> ENCODE DHS</a></li>
+<li class="chapter" data-level="6.4" data-path="chap6.html"><a href="chap6.html#repeatmasker"><i class="fa fa-check"></i><b>6.4</b> RepeatMasker</a></li>
+<li class="chapter" data-level="6.5" data-path="chap6.html"><a href="chap6.html#riege-p53-meta"><i class="fa fa-check"></i><b>6.5</b> Riege p53 Meta</a></li>
+<li class="chapter" data-level="6.6" data-path="chap6.html"><a href="chap6.html#remap-2022"><i class="fa fa-check"></i><b>6.6</b> ReMap 2022</a></li>
+<li class="chapter" data-level="6.7" data-path="chap6.html"><a href="chap6.html#abc-3d-genome"><i class="fa fa-check"></i><b>6.7</b> ABC 3D Genome</a></li>
+<li class="chapter" data-level="6.8" data-path="chap6.html"><a href="chap6.html#genehancer"><i class="fa fa-check"></i><b>6.8</b> GeneHancer</a></li>
+<li class="chapter" data-level="6.9" data-path="chap6.html"><a href="chap6.html#mcf10a-microc"><i class="fa fa-check"></i><b>6.9</b> MCF10A MicroC</a></li>
+<li class="chapter" data-level="6.10" data-path="chap6.html"><a href="chap6.html#hct116-pchic"><i class="fa fa-check"></i><b>6.10</b> HCT116 pcHIC</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap7.html"><a href="chap7.html"><i class="fa fa-check"></i><b>7</b> Database Summary Statistics</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap3" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> The Main Data Table<a href="chap3.html#chap3" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Each row in the main data table represents a putative p53 motif in the hg38 reference assembly of the human genome. The first column contains the genomic coordinate (‘unique_id’), and other categorical and quantitative data describing the fundamental characteristics of the p53 motif can be found in other columns. Figure <a href="chap3.html#fig:nav">3.1</a> shows the 7 main navigation features for the Main Data Table, each of which will be discussed in the following sections.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nav"></span>
+<img src="main_table_navigation_small.png" alt="Navigating the Main Data Table" width="80%" />
+<p class="caption">
+Figure 3.1: Navigating the Main Data Table
+</p>
+</div>
+<div id="changing-the-number-of-displayed-rows." class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Changing the number of displayed rows.<a href="chap3.html#changing-the-number-of-displayed-rows." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Users can select the number of rows they would like displayed on screen. By default, 10 rows are displayed, but users can select 25, 50, or 100 rows.</p>
+</div>
+<div id="filter-table-by-search-term." class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Filter table by search term.<a href="chap3.html#filter-table-by-search-term." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Users can enter text to filter rows that are displayed based on terms found anywhere within the table. Text search is case-insensitive and partial strings are matched. The number of rows that contain your search term are displayed in the bottom left corner of the Data Table, as shown in <a href="chap3.html#fig:rowdisplay">3.4</a></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:smallfilter"></span>
+<img src="filter_box_small.png" alt="Using the Search box in the Main Data Table" width="100%" />
+<p class="caption">
+Figure 3.2: Using the Search box in the Main Data Table
+</p>
+</div>
+</div>
+<div id="column-sorting" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Column sorting<a href="chap3.html#column-sorting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Columns can be sorted in a descending or ascending fashion by clicking/selecting the grey arrow icons next the name of each column. The shading of the up and down arrows denote whether a column is currently unsorted, sorted in ascending fashion, or in a descending fashion. Categorical data columns can be sorted alphabetically from A-Z.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:arrow"></span>
+<img src="column_operations.png.png" alt="Using and interpreting the sorting arrows" width="25%" />
+<p class="caption">
+Figure 3.3: Using and interpreting the sorting arrows
+</p>
+</div>
+</div>
+<div id="hyperlinks" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Hyperlinks<a href="chap3.html#hyperlinks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Some values within the data table exist as hyperlinks, which will take users to specific external data sources (such as the ENSEMBL or UCSC databases for genes/transcripts).</p>
+</div>
+<div id="horizontal-scrolling" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Horizontal Scrolling<a href="chap3.html#horizontal-scrolling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Not all data can be displayed on the screen at one time, so a horizontal scroll bar allows users to visualize other columns. The number of columns displayed at one time is ultimately determined by the resolution of the users screen and the current zoom level in their web browser.</p>
+</div>
+<div id="row-display-characteristics" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Row Display Characteristics<a href="chap3.html#row-display-characteristics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The number of rows/p53 motifs currently being displayed and the total number of rows using the current filtering methods (based on Basic Filtering) can be found in the lower left corner of the data table as shown in Figure <a href="chap3.html#fig:nav">3.1</a>. Basic Filtering Methods will be discussed in Chapter <a href="chap4.html#chap4">4</a>. An example of how this information is displayed can be found in Figure <a href="chap3.html#fig:rowdisplay">3.4</a>.</p>
+<p>When the Search Box is used, the display changes to show the number of rows being displayed out of the total number of rows that match your Search Term (Figure <a href="chap3.html#fig:rowdisplay">3.4</a>B). The Total number of rows/entries that meet your Basic Filtering criteria are also shown.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:rowdisplay"></span>
+<img src="row_display.png" alt="How to interpret the Row Display when using the Search Box" width="50%" />
+<p class="caption">
+Figure 3.4: How to interpret the Row Display when using the Search Box
+</p>
+</div>
+</div>
+<div id="page-navigation-selectors" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Page Navigation Selectors<a href="chap3.html#page-navigation-selectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The number of rows that can be displayed often will be smaller that the number of rows that match the Filtering and Search criteria. Thus, users can cycle through the page being displayed using a standard “Previous” and “Next” navigation system. Because the number pages displayed in the Main Data Table window can be quite high, we find it easier to filter your data further (either using the Search Box or Basic Filtering) than to try to find data by clicking through to different pages.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
