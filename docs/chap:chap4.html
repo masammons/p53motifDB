@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Filtering | _main.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Filtering | _main.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Filtering | _main.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap:chap3.html"/>
+<link rel="next" href="chap:chap5.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> p53motifDB</a></li>
+<li class="chapter" data-level="2" data-path="chap:chap2.html"><a href="chap:chap2.html"><i class="fa fa-check"></i><b>2</b> General Information</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap:chap2.html"><a href="chap:chap2.html#web-access"><i class="fa fa-check"></i><b>2.1</b> Web access</a></li>
+<li class="chapter" data-level="2.2" data-path="chap:chap2.html"><a href="chap:chap2.html#access-to-raw-data"><i class="fa fa-check"></i><b>2.2</b> Access to raw data</a></li>
+<li class="chapter" data-level="2.3" data-path="chap:chap2.html"><a href="chap:chap2.html#feedback"><i class="fa fa-check"></i><b>2.3</b> Feedback</a></li>
+<li class="chapter" data-level="2.4" data-path="chap:chap2.html"><a href="chap:chap2.html#general-use"><i class="fa fa-check"></i><b>2.4</b> General Use</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap:chap3.html"><a href="chap:chap3.html"><i class="fa fa-check"></i><b>3</b> The Main Data Table</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap:chap3.html"><a href="chap:chap3.html#changing-the-number-of-displayed-rows."><i class="fa fa-check"></i><b>3.1</b> Changing the number of displayed rows.</a></li>
+<li class="chapter" data-level="3.2" data-path="chap:chap3.html"><a href="chap:chap3.html#filter-table-by-search-term."><i class="fa fa-check"></i><b>3.2</b> Filter table by search term.</a></li>
+<li class="chapter" data-level="3.3" data-path="chap:chap3.html"><a href="chap:chap3.html#column-sorting"><i class="fa fa-check"></i><b>3.3</b> Column sorting</a></li>
+<li class="chapter" data-level="3.4" data-path="chap:chap3.html"><a href="chap:chap3.html#hyperlinks"><i class="fa fa-check"></i><b>3.4</b> Hyperlinks</a></li>
+<li class="chapter" data-level="3.5" data-path="chap:chap3.html"><a href="chap:chap3.html#horizontal-scrolling"><i class="fa fa-check"></i><b>3.5</b> Horizontal Scrolling</a></li>
+<li class="chapter" data-level="3.6" data-path="chap:chap3.html"><a href="chap:chap3.html#row-display-characteristics"><i class="fa fa-check"></i><b>3.6</b> Row Display Characteristics</a></li>
+<li class="chapter" data-level="3.7" data-path="chap:chap3.html"><a href="chap:chap3.html#page-navigation-selectors"><i class="fa fa-check"></i><b>3.7</b> Page Navigation Selectors</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap:chap4.html"><a href="chap:chap4.html"><i class="fa fa-check"></i><b>4</b> Filtering</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap:chap4.html"><a href="chap:chap4.html#basic-filters"><i class="fa fa-check"></i><b>4.1</b> Basic Filters</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="chap:chap4.html"><a href="chap:chap4.html#gene-symbolhgnc-filtering"><i class="fa fa-check"></i><b>4.1.1</b> Gene Symbol/HGNC Filtering</a></li>
+<li class="chapter" data-level="4.1.2" data-path="chap:chap4.html"><a href="chap:chap4.html#genomic-coordinate-filtering-by-chromosome-and-location"><i class="fa fa-check"></i><b>4.1.2</b> Genomic coordinate filtering by chromosome and location</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="chap:chap4.html"><a href="chap:chap4.html#p53-binding-filters"><i class="fa fa-check"></i><b>4.2</b> p53 Binding Filters</a></li>
+<li class="chapter" data-level="4.3" data-path="chap:chap4.html"><a href="chap:chap4.html#chromatin-filters"><i class="fa fa-check"></i><b>4.3</b> Chromatin Filters</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap:chap4.html"><a href="chap:chap4.html#candidate-cis-regulatory-elements-ccre"><i class="fa fa-check"></i><b>4.3.1</b> Candidate cis-regulatory elements (cCRE)</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap:chap4.html"><a href="chap:chap4.html#dnase-hypersensitive-sites-dhs"><i class="fa fa-check"></i><b>4.3.2</b> DNAse Hypersensitive Sites (DHS)</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap:chap4.html"><a href="chap:chap4.html#chromhmm"><i class="fa fa-check"></i><b>4.3.3</b> chromHMM</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap:chap4.html"><a href="chap:chap4.html#d-genome-information"><i class="fa fa-check"></i><b>4.4</b> 3D Genome Information</a></li>
+<li class="chapter" data-level="4.5" data-path="chap:chap4.html"><a href="chap:chap4.html#genome-variation"><i class="fa fa-check"></i><b>4.5</b> Genome Variation</a></li>
+<li class="chapter" data-level="4.6" data-path="chap:chap4.html"><a href="chap:chap4.html#other-genomic-variables"><i class="fa fa-check"></i><b>4.6</b> Other Genomic Variables</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="chap:chap4.html"><a href="chap:chap4.html#intergenic-or-intragenic"><i class="fa fa-check"></i><b>4.6.1</b> Intergenic or Intragenic?</a></li>
+<li class="chapter" data-level="4.6.2" data-path="chap:chap4.html"><a href="chap:chap4.html#repetitive-elements"><i class="fa fa-check"></i><b>4.6.2</b> Repetitive Elements</a></li>
+<li class="chapter" data-level="4.6.3" data-path="chap:chap4.html"><a href="chap:chap4.html#encode-blacklist"><i class="fa fa-check"></i><b>4.6.3</b> ENCODE BlackList</a></li>
+<li class="chapter" data-level="4.6.4" data-path="chap:chap4.html"><a href="chap:chap4.html#potential-cg-methylation-sites"><i class="fa fa-check"></i><b>4.6.4</b> Potential CG Methylation Sites</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap:chap5.html"><a href="chap:chap5.html"><i class="fa fa-check"></i><b>5</b> Exporting Filtered Data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap:chap5.html"><a href="chap:chap5.html#select-columns-to-export-button"><i class="fa fa-check"></i><b>5.1</b> Select Columns to Export Button</a></li>
+<li class="chapter" data-level="5.2" data-path="chap:chap5.html"><a href="chap:chap5.html#download-filtered-data-button"><i class="fa fa-check"></i><b>5.2</b> Download Filtered Data Button</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap:chap6.html"><a href="chap:chap6.html"><i class="fa fa-check"></i><b>6</b> Querying Additional Datasets</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap:chap6.html"><a href="chap:chap6.html#clinvar"><i class="fa fa-check"></i><b>6.1</b> ClinVar</a></li>
+<li class="chapter" data-level="6.2" data-path="chap:chap6.html"><a href="chap:chap6.html#dbsnp"><i class="fa fa-check"></i><b>6.2</b> dbSNP</a></li>
+<li class="chapter" data-level="6.3" data-path="chap:chap6.html"><a href="chap:chap6.html#encode-dhs"><i class="fa fa-check"></i><b>6.3</b> ENCODE DHS</a></li>
+<li class="chapter" data-level="6.4" data-path="chap:chap6.html"><a href="chap:chap6.html#repeatmasker"><i class="fa fa-check"></i><b>6.4</b> RepeatMasker</a></li>
+<li class="chapter" data-level="6.5" data-path="chap:chap6.html"><a href="chap:chap6.html#riege-p53-meta"><i class="fa fa-check"></i><b>6.5</b> Riege p53 Meta</a></li>
+<li class="chapter" data-level="6.6" data-path="chap:chap6.html"><a href="chap:chap6.html#remap-2022"><i class="fa fa-check"></i><b>6.6</b> ReMap 2022</a></li>
+<li class="chapter" data-level="6.7" data-path="chap:chap6.html"><a href="chap:chap6.html#abc-3d-genome"><i class="fa fa-check"></i><b>6.7</b> ABC 3D Genome</a></li>
+<li class="chapter" data-level="6.8" data-path="chap:chap6.html"><a href="chap:chap6.html#genehancer"><i class="fa fa-check"></i><b>6.8</b> GeneHancer</a></li>
+<li class="chapter" data-level="6.9" data-path="chap:chap6.html"><a href="chap:chap6.html#mcf10a-microc"><i class="fa fa-check"></i><b>6.9</b> MCF10A MicroC</a></li>
+<li class="chapter" data-level="6.10" data-path="chap:chap6.html"><a href="chap:chap6.html#hct116-pchic"><i class="fa fa-check"></i><b>6.10</b> HCT116 pcHIC</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap:chap7.html"><a href="chap:chap7.html"><i class="fa fa-check"></i><b>7</b> Database Summary Statistics</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap:chap4" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Filtering<a href="chap:chap4.html#chap:chap4" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The p53motifDB contains information on over 410,000 putative p53 motifs (rows) each containing over 40 categorical features or quantitative statistics (in columns).</p>
+<p>Users may want to perform exploratory data analysis to generate novel hypotheses or they may have a specific question they’d like to answer, such as whether there is a p53 binding event near their favorite gene. Both of these scenarios can investigated using a series of Data Filters found on the left-hand side of the website/app. These Data Filters are designed to be intuitive and easy to use, but are purposefully not comprehensive. Not all data types (columns) can be filtered using the provided tools. We tried to make the filtering tools intuitive so that all users could jump in quickly and start to explore the dataset. To faciliate this, we chose not to include advanced data filters or filters for all of the categorical and quantitative information in the data table.</p>
+<p>We strongly recommend using the provided filters for simple filtering operations and for intial hypothesis generation. Advanced filtering and analysis can be performed on the exported datasets (see Chapters 5 and 6). To facilitate this, the entire Main Data Table and all accessory data tables can be downloaded from <a href="https://zenodo.org/records/13351805/files/raw_tables.tar.gz?download=1">Zenodo</a> for input into any data analysis platform (such as <em>R</em>). Users who are familiar with traditional database queries can also find a pre-compiled sqlite database at <a href="https://zenodo.org/records/13351805">Zenodo</a>.</p>
+<p>In the following sections, we will walkthrough the 5 categories of data filters, how to use them, and our recommendations for filtering.</p>
+<div id="basic-filters" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Basic Filters<a href="chap:chap4.html#basic-filters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>First, let’s discuss 4 basic data filters for position of the p53RE within the genome and its location relative to genes.</p>
+<div id="gene-symbolhgnc-filtering" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Gene Symbol/HGNC Filtering<a href="chap:chap4.html#gene-symbolhgnc-filtering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The top box (shown in Figure <a href="chap:chap4.html#fig:hgncsearch">4.1</a>A allows users to input a Gene Symbol (HUGO Gene Nomenclature Committee ID) and filter the Data Table based on whether a p53motif (row) contains that gene information. The input is case-insensitive. For example, typing in “CDKN1A” and “cdkn1a” will yield the same set of filtered data (5 rows)(shown in the dashed box of Figure <a href="chap:chap4.html#fig:hgncsearch">4.1</a>A. Partial strings are also matched, so typing “CDKN1” will bring up results containing CDKN1A, CDKN1B, and CDKN1C.</p>
+<p>The HGNC Filter in the left panel (Figure <a href="chap:chap4.html#fig:hgncsearch">4.1</a>A ) and the Search Box in the upper-right hand side of the Main Data Table Window (shown in Figure <a href="chap:chap4.html#fig:hgncsearch">4.1</a>B ) can both be used to search for HGNC/Gene Symbol information, but there are key differences between the two filtering approaches. They are not identical. Most important is that the HGNC-specific filter is run first and will reduce the number of rows displayed in the Main Data table in combination with all other Data filters (described in subsequent sections). The Search box would then filter any results in the Main Data table further.</p>
+<p>As an example, we will discuss the behavior of the HGNC filter and the Main Data Table Search feature if the search terms CDKN1A and PANDAR are used in Figures Figure @ref{fig:hgncsearch}A and B . These are both known p53 target genes with nearby p53RE, so users may want to filter their data to find p53RE near both CDKN1A and PANDAR. Typing CDKN1A into either the HGNC Filter box or the Search box will yield the same number of results (5 rows from the original 412,586, assuming no other filters are used). When the HGNC Filter is used to search for CDKN1A, the Row Display in the Main Data Table will say “Showing 1 to 5 of 5 entries” (Figure <a href="chap:chap4.html#fig:hgncsearch">4.1</a>A, dashed box). If the Search Box is used, the display will depict “Showing 1 to 5 of 5 entries (filtered from 412,586 total entries)”. This tells users that there are 412,586 rows that match the filters selected using the Data Filter panel (left-hand side), and that the term input into the Search Box has filtered the dataset to just 5 rows (Figure <a href="chap:chap4.html#fig:hgncsearch">4.1</a> B, dashed box).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:hgncsearch"></span>
+<img src="hgnc_versus_search.png" alt="Data Filters versus the Search Box" width="100%" />
+<p class="caption">
+Figure 4.1: Data Filters versus the Search Box
+</p>
+</div>
+<p>If we input CDKN1A into the HGNC Filter and then further refine our query using the Search Box for “PANDAR”, we see that there are two rows that match these criteria out of 5 total entries. The 5 entries are based on the number of rows that contain “CDKN1A”, and of those 5 rows, 2 contain the term “PANDAR” (as shown in Figure <a href="chap:chap4.html#fig:hgncsearch2">4.2</a> A, dashed box). If we reverse the search terms, and place “PANDAR” in the HGNC Filter and “CDKN1A” in the Search Box, we receive the same two rows, but we now see this is the result of filtering based on only 4 entries (as shown in Figure <a href="chap:chap4.html#fig:hgncsearch2">4.2</a>B, dashed box). This is because there are 4 total rows in the entire dataset that contain the term “PANDAR”, of which 2 rows also contain the term “CDKN1A”. Understanding these seemingly small differences in filtering methods will help end users better understand how to use the data filtering tools to best refine their hypotheses.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:hgncsearch2"></span>
+<img src="hgnc_versus_search_example_2.png" alt="Data Filters versus the Search Box, Example 2" width="100%" />
+<p class="caption">
+Figure 4.2: Data Filters versus the Search Box, Example 2
+</p>
+</div>
+<p>Another key difference between the HGNC Filter and the Search Box is the speed of filtering based on computational efficiency. Filtering via the HGNC filter box (on the left panel) is considerably quicker, so this should be the first choice for faster querying.</p>
+<p>Gene symbol information is found in three columns of the Main Data table (hgnc_intersection, downstream_hgnc, upstream_hgnc). It is important to understand how these columns differ from each other. The “hgnc_intersection” column denotes whether the p53motif location falls within an HGNC-named gene (Figure <a href="chap:chap4.html#fig:hgnc">4.3</a> A). The upstream_hgnc and downstream_hgnc columns denote the nearest upstream (5’) or downstream (3’) transcriptional start site (TSS) of an HGNC-named gene. For example, the p53 motif location depicted in Figure <a href="chap:chap4.html#fig:hgnc">4.3</a>A would yield Gene X as the upstream_hgnc result and Gene Y as the downstream_hgnc result. Figure <a href="chap:chap4.html#fig:hgnc">4.3</a> C shows a more complicated example. In this case, Gene Y would be the result in both the hgnc_intersection and upstream_hgnc columns, since the TSS of Gene Y is the closest TSS to this p53RE. On the contrary, Gene X would be found in the upstream_gene column and Gene Y would be the downstream_hgnc result for the p53RE, as depicted in Figure <a href="chap:chap4.html#fig:hgnc">4.3</a>D.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:hgnc"></span>
+<img src="hgnc_distance.png" alt="How to interpret distance of a p53RE to the nearest HGNC Gene Location" width="40%" />
+<p class="caption">
+Figure 4.3: How to interpret distance of a p53RE to the nearest HGNC Gene Location
+</p>
+</div>
+</div>
+<div id="genomic-coordinate-filtering-by-chromosome-and-location" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Genomic coordinate filtering by chromosome and location<a href="chap:chap4.html#genomic-coordinate-filtering-by-chromosome-and-location" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The next three filters allow users to filter p53RE (rows) by chromosome and position. Users can restrict the data displayed to a single chromosome using the dropdown box. Chromosomes are listed in numerical order (from 1-22) and then by chrX, Y, and M. Users can also filter p53RE by their position on a chromosome using the Chromosome Start and Chromosome Stop input boxes. Entering a number in the Chromosome Start box will filter rows where the p53RE is found 3’ (higher number) of the value input. Entering a number in the Chromosome Stop box will restrict the data to p53RE that are found 5’ (lower number) to the input value. For example, selecting chr19 and restricting the Chromosome Start and Stop to 500000 and 550000, respectively, (solid box, Figure <a href="chap:chap4.html#fig:chrstartstop">4.4</a>) will find 6 entries (dashed box, Figure <a href="chap:chap4.html#fig:chrstartstop">4.4</a>). This functionality is similar to using common genome browsers (like UCSC) and restricting the “view” to chr19:500000-550000.</p>
+<p>Note that any numbers input into the Chromosome Start or Chromosome Stop boxes must be free of any commas or other delimiters.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:chrstartstop"></span>
+<img src="chrstartstop.png" alt="Filtering p53RE by chromosome location and position" width="100%" />
+<p class="caption">
+Figure 4.4: Filtering p53RE by chromosome location and position
+</p>
+</div>
+</div>
+</div>
+<div id="p53-binding-filters" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> p53 Binding Filters<a href="chap:chap4.html#p53-binding-filters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This filtering panel allows for users to select p53RE with observed, <em>in vivo</em> p53 occupancy defined in a series of 4 different meta-analyses.</p>
+<p>[1] A. Verfaillie et al., “Multiplex enhancer-reporter assays uncover unsophisticated TP53 enhancer logic,” Genome Res., vol. 26, no. 7, pp. 882–895, Jul. 2016, doi: 10.1101/gr.204149.116.</p>
+<p>[2] K. Riege, H. Kretzmer, A. Sahm, S. S. McDade, S. Hoffmann, and M. Fischer, “Dissecting the DNA binding landscape and gene regulatory network of p63 and p53.,” Elife, vol. 9, Dec. 2020, doi: 10.7554/eLife.63266.</p>
+<p>[3] T.-A. T. Nguyen et al., “Revealing a human p53 universe,” Nucleic Acids Research, Aug. 2018, doi: 10.1093/nar/gky720.</p>
+<p>[4] F. Hammal, P. de Langen, A. Bergon, F. Lopez, and B. Ballester, “ReMap 2022: a database of Human, Mouse, Drosophila and Arabidopsis regulatory regions from an integrative analysis of DNA-binding sequencing experiments,” Nucleic Acids Res, vol. 50, no. D1, pp. D316–D325, Jan. 2022, doi: 10.1093/nar/gkab996.</p>
+<p>The first dropdown box allows users to filter based on whether the p53RE was bound by p53 in at least one of the 4 meta-analyses (Figure <a href="chap:chap4.html#fig:p53filt">4.5</a>). This represents the least stringent p53 binding filter because it allows that the occupancy was observed in a single experiment. Selecting NO will display p53RE without p53 binding in these studies, while selecting ANY will display all p53RE (rows) that pass all other filters. When users first start the p53motifDB, the default filtering scheme is to only display p53RE (rows) that have at least one observation of p53 binding across the 4 meta-analyses.</p>
+<p>The remaining 4 dropdown boxes limit the filtering to individual p53 binding meta-analyses. In-depth, specific information on the underlying meta-analyses data can best be found in the specific manuscripts listed above. Users can export some of this information from Riege et al and the ReMap 2022 analysis, including specific cell lines and conditions where p53 binding was observed. in the “Query Other Datasets” Chapter <a href="chap:chap6.html#chap:chap6">6</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:p53filt"></span>
+<img src="p53_filters.png" alt="Filtering p53RE by p53 protein occupancy" width="50%" />
+<p class="caption">
+Figure 4.5: Filtering p53RE by p53 protein occupancy
+</p>
+</div>
+</div>
+<div id="chromatin-filters" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Chromatin Filters<a href="chap:chap4.html#chromatin-filters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The second group of filters allows users to select p53RE that fall within genomic regions that have characteristics of putative transcriptional regulatory regions. The ENCODE Project identified genomic regions with defined chromatin structure characteristics. The goal was to segment the genome into functional regions, such as regions that are likely to be enhancers or promoters or regions that are likely to be heterochromatin. The p53motifBD surveyed p53RE locations relative to these chromatin-based functional genome segmentations. Below, we describe the three types of segmentation and how users can filter p53RE based on these characteristics.</p>
+<div id="candidate-cis-regulatory-elements-ccre" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Candidate cis-regulatory elements (cCRE)<a href="chap:chap4.html#candidate-cis-regulatory-elements-ccre" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The first filter allows users to select p53RE that overlap candidate Cis-Regulatory Elements (cCRE). These elements were defined by integrating DNase and ATAC accessibility information, H3K4me3 and H3K27ac enrichment, and binding by CTCF or other transcription factors.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ccre"></span>
+<img src="ccre.png" alt="Filtering by candidate Cis-Regulatory Element (cCRE)" width="50%" />
+<p class="caption">
+Figure 4.6: Filtering by candidate Cis-Regulatory Element (cCRE)
+</p>
+</div>
+<p>The top dropdown box (shown in Figure <a href="chap:chap4.html#fig:ccre">4.6</a> allows users to filter by whether or not the p53RE is found within a defined cCRE (YES/NO) or can choose ANY to ignore cCRE as a discriminating factor. By default, the “ANY” filter is applied, meaning that cCRE is not used as a filtering criterion. The box below (“Filter by cCRE Type”) allows users to select specific types of cCRE and filter only on those by selecting terms (Described in Table 1) in the box below.</p>
+<p>TABLE 1</p>
+<table>
+<colgroup>
+<col width="55%" />
+<col width="44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Abbreviation</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">CA-CTCF</td>
+<td align="left">chromatin accessible and bound by CTCF</td>
+</tr>
+<tr class="even">
+<td align="center">CA</td>
+<td align="left">chromatin accessible without other chromatin-based features</td>
+</tr>
+<tr class="odd">
+<td align="center">CA-H3K4me3</td>
+<td align="left">chromatin accessible and enriched for H3K4me3</td>
+</tr>
+<tr class="even">
+<td align="center">CA-TF</td>
+<td align="left">chromatin accessible and bound by some transcription factors</td>
+</tr>
+<tr class="odd">
+<td align="center">dELS</td>
+<td align="left">distal enhancer-like signature</td>
+</tr>
+<tr class="even">
+<td align="center">pELS</td>
+<td align="left">proximal enhancer-like signature</td>
+</tr>
+<tr class="odd">
+<td align="center">PLS</td>
+<td align="left">promoter-like signature</td>
+</tr>
+<tr class="even">
+<td align="center">TF</td>
+<td align="left">bound by some transcription factors without other chromatin-based features</td>
+</tr>
+</tbody>
+</table>
+<p>More information on the process by which cCRE regions were defined, please see the <a href="https://screen.wenglab.org/about">SCREEN website</a> from the Weng lab at UMass Med.</p>
+<p>[1] J. E. Moore et al., “Expanded encyclopaedias of DNA elements in the human and mouse genomes,” Nature, vol. 583, no. 7818, pp. 699–710, Jul. 2020, doi: 10.1038/s41586-020-2493-4.</p>
+</div>
+<div id="dnase-hypersensitive-sites-dhs" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> DNAse Hypersensitive Sites (DHS)<a href="chap:chap4.html#dnase-hypersensitive-sites-dhs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The second filter is for p53RE that are located within DNAse-Hypersensitive Sites (DHS) (box 3 in Figure <a href="chap:chap4.html#fig:chromfilters">4.7</a>). The ENCODE Project cataloged hundreds of thousands of regions of the genome, across hundreds of cells, tissues and conditions, that are accessible to DNAse and presumably would also be accessible to transcription factors, transcriptional machinery, and other DNA binding proteins (other than nucleosomes). Extensive analysis suggests these regions may be transcriptional regulatory elements, like enhancers, promoters, insulators, and silencers.</p>
+<p>Users can filter p53RE based on the presence within DHS regions using the Basic Filters on the left panel (Figure <a href="chap:chap4.html#fig:chromfilters">4.7</a>), box 3), and can export additional information about these locations, including the cell type where the DHS was observed and cell type-specific scores, using methods described in Chapter <a href="chap:chap6.html#chap:chap6">6</a>: Querying Additional Datasets.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:chromfilters"></span>
+<img src="chrom_filters.png" alt="Filtering by chromHMM type" width="50%" />
+<p class="caption">
+Figure 4.7: Filtering by chromHMM type
+</p>
+</div>
+</div>
+<div id="chromhmm" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> chromHMM<a href="chap:chap4.html#chromhmm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The final set of filters is for p53RE located within chromHMM-based genome segments. This is shown in the bottom two input boxes in Figure <a href="chap:chap4.html#fig:chromfilters">4.7</a>. chromHMM is a mathematical model that incorporates multiple forms of chromatin and transcriptional data to define the most likely “functional state” of that genomic location. For example, regions with high enrichment for H3K27ac, low levels of H3K4me3, and that are accessible to DNAse likely represent transcriptional enhancers. We incorporated the “fullstack” chromHMM dataset which defines genomic locations based on their most common functional classification across multiple cell types. Thus, users can select p53RE that are located in transcriptional enhancers, open chromatin regions, promoters, heterochromatin/transcriptionall repressed areas of the genome, and many other types of locations. To do this, users can select either detailed chromHMM terms or summary chromHMM groups from the respective dropdown menus shown in Figure <a href="chap:chap4.html#fig:chromfilters">4.7</a>.</p>
+<p>A description of each annotation type can be found in the table below, but complete information on how each chromHMM can be found in [1], or at the <a href="https://github.com/ernstlab/full_stack_ChromHMM_annotations">Ernst Lab GitHub page</a>.</p>
+<p>TABLE 2</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Term</th>
+<th align="left">Long annotations</th>
+<th align="left">Group</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Acet1</td>
+<td align="left">H3K9me3 + class1 epigenome acetylations +simple repeats</td>
+<td align="left">acetylations</td>
+</tr>
+<tr class="even">
+<td align="left">Acet2</td>
+<td align="left">class1 epigenome acetylations weak; highest emissions in ES &amp; iPSC. 19_DNase in ESC, iPSC and ES-deriv. Mixes of quescient in other cell types</td>
+<td align="left">acetylations</td>
+</tr>
+<tr class="odd">
+<td align="left">Acet3</td>
+<td align="left">class1 epigenome acetylations very weak; universal quescient</td>
+<td align="left">acetylations</td>
+</tr>
+<tr class="even">
+<td align="left">Acet4</td>
+<td align="left">class 1 epigenome acetylations and IMR90 enhancers. 17_EnhW2 in most cell types</td>
+<td align="left">acetylations</td>
+</tr>
+<tr class="odd">
+<td align="left">Acet5</td>
+<td align="left">class 1 epigenome acetylations and IMR90 enhancers weak.</td>
+<td align="left">acetylations</td>
+</tr>
+<tr class="even">
+<td align="left">Acet6</td>
+<td align="left">IMR90 class 1 acetylations. 18_EnhAc in Myostat, IMR90, Mesench</td>
+<td align="left">acetylations</td>
+</tr>
+<tr class="odd">
+<td align="left">Acet7</td>
+<td align="left">Enhancers in IMR90, Myostat, Mesench, Epithelial, ENCODE2012 . IMR90 class 1 acetylations</td>
+<td align="left">acetylations</td>
+</tr>
+<tr class="even">
+<td align="left">Acet8</td>
+<td align="left">acetylations marks + enhancers in ESC-derived (H1_BMP4_Derived_Trophoblast_Cultu#FF0000_Cells)</td>
+<td align="left">acetylations</td>
+</tr>
+<tr class="odd">
+<td align="left">BivProm1</td>
+<td align="left">bivalent promoter- more balanced H3K4me3/ H3K27me3</td>
+<td align="left">bivalent promoters</td>
+</tr>
+<tr class="even">
+<td align="left">BivProm2</td>
+<td align="left">bivalent promoter- stronger on H3K27me3</td>
+<td align="left">bivalent promoters</td>
+</tr>
+<tr class="odd">
+<td align="left">BivProm3</td>
+<td align="left">24_ReprPC in ENCODE, Blood &amp; Tcell, Digestive, HSC &amp;B-cell, Sm.Muscle. 23_PromBiv flanking in other cell types. H3K27me3 and H3K4me1</td>
+<td align="left">bivalent promoters</td>
+</tr>
+<tr class="even">
+<td align="left">BivProm4</td>
+<td align="left">bivalent promoter in Blood &amp; T-cells, HSC &amp; B-cell, ESC. Prom_D2 in Brain, muscle, sm. Muscle, mesench, neurosph, myosate and adipose. A mix of Prom_D2, bivalent promoter and 22_prom_p in ESC_derived, ENCODE 2012, iPSC, Digestive, Epithelia, Heath and other cell types</td>
+<td align="left">bivalent promoters</td>
+</tr>
+<tr class="odd">
+<td align="left">DNase1</td>
+<td align="left">DNase I only; CTCF in various cell types, Candidate Insulator</td>
+<td align="left">DNase</td>
+</tr>
+<tr class="even">
+<td align="left">EnhA1</td>
+<td align="left">enhancers in most cell types, weaker in blood. EnhA1 in Digestive, Other, ES_deriv, Epithelial, Heart, Muscle, Thymus and Neurosph</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhA10</td>
+<td align="left">HSC&amp;B-cell* enhancers (K4me1, K27ac, DNase) –not as strong as 64; weaker enhancers in other cell types</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">EnhA11</td>
+<td align="left">Monoctyes, neutrophils, HSC&amp;Bcells * enhancers</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhA12</td>
+<td align="left">Epithelial enhancers (H3K4me1 &amp; DNase); ES_derived weaker acetylations + H3K4me1</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">EnhA13</td>
+<td align="left">enhancers (H3K4me1) - epithelial, weak signals</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhA14</td>
+<td align="left">Liver/Intestine/Digestive* enhancers (H3K4me1, H3K27ac, DNase); weak others</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">EnhA15</td>
+<td align="left">Liver/Intestine/Digestive enhancers weak</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhA16</td>
+<td align="left">ENCODE cell line specific positions; H2A.Z, H3K4me1, H3K27ac, DNase</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">EnhA17</td>
+<td align="left">ESC, iPSC, Neurosph enhancers and some differentiated</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhA18</td>
+<td align="left">ESC/iPSC enhancers (13_EnhA1) strong and some ESC-derived (ESC H3K4me1*); ERV1 repeats</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">EnhA19</td>
+<td align="left">ES/iPSC/ES-derived enhancers strong (H3K4me1, DNase, acetylations)</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhA2</td>
+<td align="left">enhancers in mesenchymal, muscle, heart, neurosph, adipose. DNase in ESC and iPSC</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">EnhA20</td>
+<td align="left">HUVEC enhancers</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhA3</td>
+<td align="left">strong enhancers in most cells, weaker in blood and ESC&amp;iPSC</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">EnhA4</td>
+<td align="left">strong enhancers in myostat, mesench, lung, epithelial</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhA5</td>
+<td align="left">enhancers in mesenchymal, myosat. DNase (weaker emission) in most other</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">EnhA6</td>
+<td align="left">Brain* enhancers (Brain_H3K4me1*, Brain_H3K4me3)</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhA7</td>
+<td align="left">blood_enhancer* (Blood H3K4me1, H3K4me3). 13_EnhA1, 15_EnhAF in Blood&amp;Tcell, HSC&amp;B-cell. Mixed 24_ReprPC, 22_PromP, 17_EnhW2 in others. H3K4me1 &amp;H3K27me3 weak.</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">EnhA8</td>
+<td align="left">active enhancers in blood* and thymus (H3K4me1, H3K27ac, H3K4me2, H3K4me3)</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhA9</td>
+<td align="left">Blood* and thymus enhancer strongest. 9_TxReg and 10_TxReg5p in other ct</td>
+<td align="left">enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">EnhWk1</td>
+<td align="left">weak enhancers acetylation in mesench &amp; myostat. DNase in brain, IM90, Adipose, Epithelial, Neurosph, muscle</td>
+<td align="left">weak enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhWk2</td>
+<td align="left">Enhancers in muscle, adipose, heart, brain (13_ENhA, 15_EnhAF) (H3M4me1 and acetylations, weak). 18_EnhAc and 17_EnhW2 in other</td>
+<td align="left">weak enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">EnhWk3</td>
+<td align="left">enhancers (H3K4me1, H3K27ac) in muscle, heart, adipose (weak emissions). Weak Enh, DNase signals in others</td>
+<td align="left">weak enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhWk4</td>
+<td align="left">weak enhancers (H3K4me1 weak, no H3K27ac) brain and neurosph</td>
+<td align="left">weak enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">EnhWk5</td>
+<td align="left">weak enhancers blood* and thymus (H3K4me1, very weak H3K27ac in thymus)</td>
+<td align="left">weak enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhWk6</td>
+<td align="left">weak enhancer blood* (T-cell preferential) and thymus (H3K4me1 and H3K27ac). Very weak enhancers + transcription in others</td>
+<td align="left">weak enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">EnhWk7</td>
+<td align="left">HSC-Bcells weak enhancers (HSC H3K4me1*)</td>
+<td align="left">weak enhancers</td>
+</tr>
+<tr class="odd">
+<td align="left">EnhWk8</td>
+<td align="left">17_EnhW2, 18_EnhAC in ES_derived, ESC, iPSC (K4me1, very weak K27ac). 25_Ques in others.</td>
+<td align="left">weak enhancers</td>
+</tr>
+<tr class="even">
+<td align="left">GapArtf1</td>
+<td align="left">No signal; unmappable - assembly gaps</td>
+<td align="left">others</td>
+</tr>
+<tr class="odd">
+<td align="left">GapArtf2</td>
+<td align="left">satellite repeats/artifacts; H3K9me3, DNase I, and some signal from many others</td>
+<td align="left">others</td>
+</tr>
+<tr class="even">
+<td align="left">GapArtf3</td>
+<td align="left">rRNA, satellite repeats; artifacts; High signal most experiments; satellite repeats</td>
+<td align="left">others</td>
+</tr>
+<tr class="odd">
+<td align="left">HET1</td>
+<td align="left">H3K9me3. Het in epithelial, IM90, adipose, HSC&amp;B-cell, thymus. LTR repeats Mix of Het and quescient in other.</td>
+<td align="left">HET</td>
+</tr>
+<tr class="even">
+<td align="left">HET2</td>
+<td align="left">H3K9me3+H3K27me3; Quescient: Mesench, blood &amp; T-cell, Brain. PolyRep in Sm.Muscle, muscle. Het in Epithelial, IM90, Myostat</td>
+<td align="left">HET</td>
+</tr>
+<tr class="odd">
+<td align="left">HET3</td>
+<td align="left">H3K9me3 weak; LINE repeats</td>
+<td align="left">HET</td>
+</tr>
+<tr class="even">
+<td align="left">HET4</td>
+<td align="left">H3K9me3; LTR/LINE/satellite repeats; Stronger in Adipose, Mesench, Neurosph, ESC, HSC &amp;Bcells</td>
+<td align="left">HET</td>
+</tr>
+<tr class="odd">
+<td align="left">HET5</td>
+<td align="left">H3K9me3 strong; LTR repeats</td>
+<td align="left">HET</td>
+</tr>
+<tr class="even">
+<td align="left">HET6</td>
+<td align="left">H3K9me3 weak; LTR and Other class repeats</td>
+<td align="left">HET</td>
+</tr>
+<tr class="odd">
+<td align="left">HET7</td>
+<td align="left">H3K9me3 very weak; LTR and Other class repeats</td>
+<td align="left">HET</td>
+</tr>
+<tr class="even">
+<td align="left">HET8</td>
+<td align="left">H3K9me3 and some H3K27me3; LTR, RNA repeats</td>
+<td align="left">HET</td>
+</tr>
+<tr class="odd">
+<td align="left">HET9</td>
+<td align="left">H3K9me3 - ESC/iPSC; LTR, Satellite repeats</td>
+<td align="left">HET</td>
+</tr>
+<tr class="even">
+<td align="left">PromF1</td>
+<td align="left">H3K4me1 strongest, all ct; some promoter flank; other marks: H3K4me2, DNase, H2A.Z, weaker in H3K4me3, H3K27ac, H3K9ac, class1 acetylation</td>
+<td align="left">promoters</td>
+</tr>
+<tr class="odd">
+<td align="left">PromF2</td>
+<td align="left">H3K4me1, H3K4me2, H3K4me3, DNase, acetylations promoter flank upstream bias</td>
+<td align="left">promoters</td>
+</tr>
+<tr class="even">
+<td align="left">PromF3</td>
+<td align="left">H3K4me2, H3K4me3, H3K4me1(weaker than me3), DNase, acetylations - flanking tss upstream and downstream</td>
+<td align="left">promoters</td>
+</tr>
+<tr class="odd">
+<td align="left">PromF4</td>
+<td align="left">H3K4me2, H3K4me3 limited H3K4me1, heavily acetylated - flanking tss downstream bias</td>
+<td align="left">promoters</td>
+</tr>
+<tr class="even">
+<td align="left">PromF5</td>
+<td align="left">flanking promoter; 2_PromU in most cell types; stronger on H3K4me3</td>
+<td align="left">promoters</td>
+</tr>
+<tr class="odd">
+<td align="left">PromF6</td>
+<td align="left">active downstream promoter (3_PromD1, 4_PromD2 all ct);</td>
+<td align="left">promoters</td>
+</tr>
+<tr class="even">
+<td align="left">PromF7</td>
+<td align="left">Prom further downstream (neighborhood enrichment); 4_PromD2 all ct; H3K4me1, H3K4me2, H3K4me3, H3K79me2, H3K9ac, H3K27ac</td>
+<td align="left">promoters</td>
+</tr>
+<tr class="odd">
+<td align="left">Quies1</td>
+<td align="left">quescient; H3K9me3 very weak; broad domain; Cell lines; ENCODE2012, Epithelial, IMR90, Myostat</td>
+<td align="left">quescient</td>
+</tr>
+<tr class="even">
+<td align="left">Quies2</td>
+<td align="left">quescient; H3K9me3 weak inIMR90, Epithelial, ENCODE2012, Myostat</td>
+<td align="left">quescient</td>
+</tr>
+<tr class="odd">
+<td align="left">Quies3</td>
+<td align="left">quescient (very low non-specific signal)</td>
+<td align="left">quescient</td>
+</tr>
+<tr class="even">
+<td align="left">Quies4</td>
+<td align="left">H3K9me3 very weak; LINE repeats; 25_ques in most ct. 21_Het in ESC-related</td>
+<td align="left">quescient</td>
+</tr>
+<tr class="odd">
+<td align="left">Quies5</td>
+<td align="left">quescient (H3K9me3/H3K27me3 very weak)</td>
+<td align="left">quescient</td>
+</tr>
+<tr class="even">
+<td align="left">ReprPC1</td>
+<td align="left">ReprPC (except: PromBiv in ESC); H3K27me3 strong and H3K4me1 weak</td>
+<td align="left">polycomb repressed</td>
+</tr>
+<tr class="odd">
+<td align="left">ReprPC2</td>
+<td align="left">polycomb repressed (H3K27me3)</td>
+<td align="left">polycomb repressed</td>
+</tr>
+<tr class="even">
+<td align="left">ReprPC3</td>
+<td align="left">weak polycomb repressed (H3K27me3 weak)</td>
+<td align="left">polycomb repressed</td>
+</tr>
+<tr class="odd">
+<td align="left">ReprPC4</td>
+<td align="left">very weak polycomb repressed (H3K27me3 very weak)</td>
+<td align="left">polycomb repressed</td>
+</tr>
+<tr class="even">
+<td align="left">ReprPC5</td>
+<td align="left">polycomb repressed (H3K27me3 in most cell types and some class1 acetylation in ESC and ESC-derived)</td>
+<td align="left">polycomb repressed</td>
+</tr>
+<tr class="odd">
+<td align="left">ReprPC6</td>
+<td align="left">24_ReprPC (H3K27me3) in Brain, Epithelial, muscles, Mesench, Neurosph, Mystat, IM90, Adipose. Others quescient</td>
+<td align="left">polycomb repressed</td>
+</tr>
+<tr class="even">
+<td align="left">ReprPC7</td>
+<td align="left">17_EnhW: brain, HSC&amp;B-cell, Neurosph, ESC, iPSC, Heart. 24_ReprPC: Epithelial, Mesench, Mystat, IM90, Adipose.H3K27me3 IMR90, Epithelial, Myostat, Mesench with some class 1 acetylations and H3K4me1</td>
+<td align="left">polycomb repressed</td>
+</tr>
+<tr class="odd">
+<td align="left">ReprPC8</td>
+<td align="left">H3K27me3/H3K9me3 weak. Mixed 25_Ques and 24_ReprPC</td>
+<td align="left">polycomb repressed</td>
+</tr>
+<tr class="even">
+<td align="left">ReprPC9</td>
+<td align="left">H3k27me3 in es/ipsc; Weak H3K27me3 in others; 24_ReprPC in all ct</td>
+<td align="left">polycomb repressed</td>
+</tr>
+<tr class="odd">
+<td align="left">TSS1</td>
+<td align="left">TSS more acetylated and active; 1_TssA in all cell types</td>
+<td align="left">TSS</td>
+</tr>
+<tr class="even">
+<td align="left">TSS2</td>
+<td align="left">TSS (22_PromP in iPSC)</td>
+<td align="left">TSS</td>
+</tr>
+<tr class="odd">
+<td align="left">Tx1</td>
+<td align="left">H3K79me2. Mostly Tx5p, some TxEnhW in Blood &amp; T-cell (Blood_H3K4me1*)</td>
+<td align="left">transcription</td>
+</tr>
+<tr class="even">
+<td align="left">Tx2</td>
+<td align="left">weak H3K79me2, 5_Tx5p</td>
+<td align="left">transcription</td>
+</tr>
+<tr class="odd">
+<td align="left">Tx3</td>
+<td align="left">H3K79m2 and H3K79me1, 5_Tx5p,</td>
+<td align="left">transcription</td>
+</tr>
+<tr class="even">
+<td align="left">Tx4</td>
+<td align="left">H3K79me2 and H3K36me3 (weaker). 6_Tx, few 5_Tx5p</td>
+<td align="left">transcription</td>
+</tr>
+<tr class="odd">
+<td align="left">Tx5</td>
+<td align="left">H3K36me3; SINE repeats strongest; 7_Tx3p in all most all cell types</td>
+<td align="left">transcription</td>
+</tr>
+<tr class="even">
+<td align="left">Tx6</td>
+<td align="left">H3K36me3 - HSC&amp;B-cell and Mesench preference. 7_Tx3p in blood, mesench, ESC, iPsc, Myostat, adipose, thymus.</td>
+<td align="left">transcription</td>
+</tr>
+<tr class="odd">
+<td align="left">Tx7</td>
+<td align="left">H3K36me3 strong, HSC&amp;B-cell and Mesench preference; 7_Tx3p in all cell types</td>
+<td align="left">transcription</td>
+</tr>
+<tr class="even">
+<td align="left">Tx8</td>
+<td align="left">H3K36me3 (weaker); Mix of 7_Tx3p and 8_TxWk</td>
+<td align="left">transcription</td>
+</tr>
+<tr class="odd">
+<td align="left">TxEnh1</td>
+<td align="left">H3K79me2 and enhancers Mesench, Myostat, ENCODE, Epithelial</td>
+<td align="left">transcribed and enhancer</td>
+</tr>
+<tr class="even">
+<td align="left">TxEnh2</td>
+<td align="left">H3K79me2 and blood enhancers (Blood_H3K4me1*)</td>
+<td align="left">transcribed and enhancer</td>
+</tr>
+<tr class="odd">
+<td align="left">TxEnh3</td>
+<td align="left">H3K79me2 strong, H3K79me1, H4K20me1, H3K36me3, some enhancers. 6_Tx in ESC, ES-deriv and iPSC. 12_TxEnhW in Blood &amp;T-cell, sm. Muscle, myostat and adipose</td>
+<td align="left">transcribed and enhancer</td>
+</tr>
+<tr class="even">
+<td align="left">TxEnh4</td>
+<td align="left">H3K36me3 strong and some enhancers (H3K27ac, H3K4me1); exons; near TES; 11_TxEnh3p all cell types</td>
+<td align="left">transcribed and enhancer</td>
+</tr>
+<tr class="odd">
+<td align="left">TxEnh5</td>
+<td align="left">H3K36me3 (weaker). 11_TxEnh3p in most cell types. 7_Tx3p in a few</td>
+<td align="left">transcribed and enhancer</td>
+</tr>
+<tr class="even">
+<td align="left">TxEnh6</td>
+<td align="left">H3K36me3 + enhancers blood preference (H3K4me1<em>, H3K4me3, H3K27ac</em>). 11_TxEnh3p in all cell types</td>
+<td align="left">transcribed and enhancer</td>
+</tr>
+<tr class="odd">
+<td align="left">TxEnh7</td>
+<td align="left">H3K79me2 and enhancers; 10_TxEnh5p, 12_TxEnhW in all cell types</td>
+<td align="left">transcribed and enhancer</td>
+</tr>
+<tr class="even">
+<td align="left">TxEnh8</td>
+<td align="left">Transcribed enhancers 3’; enhancers Myostat, IMR90, Mesench, Epithelial</td>
+<td align="left">transcribed and enhancer</td>
+</tr>
+<tr class="odd">
+<td align="left">TxEx1</td>
+<td align="left">H3K79me2 and H3K36me3; exon; 6_Tx</td>
+<td align="left">exon</td>
+</tr>
+<tr class="even">
+<td align="left">TxEx2</td>
+<td align="left">H3K36me3 strongest; exons; Tx3p</td>
+<td align="left">exon</td>
+</tr>
+<tr class="odd">
+<td align="left">TxEx3</td>
+<td align="left">H3K36me3 strong; exon; Tx3p</td>
+<td align="left">exon</td>
+</tr>
+<tr class="even">
+<td align="left">TxEx4</td>
+<td align="left">TES and some promoter flanking; 9_TxReg; very high avg_gene_exp; H3K36me3, H3K79me2, H3K79me1, H3K27ac, H3K4me1, H3K4me2, H3K9ac</td>
+<td align="left">exon</td>
+</tr>
+<tr class="odd">
+<td align="left">TxWk1</td>
+<td align="left">H3K36me3 weak; weak transcription; 8_TxWk</td>
+<td align="left">weak transcription</td>
+</tr>
+<tr class="even">
+<td align="left">TxWk2</td>
+<td align="left">H3K36me3 weak; 8_TxW in all cell types; some acetylations</td>
+<td align="left">weak transcription</td>
+</tr>
+<tr class="odd">
+<td align="left">znf1</td>
+<td align="left">H3K36me3+H3K9me3; ZNF genes</td>
+<td align="left">znf</td>
+</tr>
+<tr class="even">
+<td align="left">znf2</td>
+<td align="left">H3K36me3+H3K9me3 strong; ZNF genes (~80 folds)</td>
+<td align="left">znf</td>
+</tr>
+</tbody>
+</table>
+<p>[1] H. Vu and J. Ernst, “Universal annotation of the human genome through integration of over a thousand epigenomic datasets,” Genome Biology, vol. 23, no. 1, p. 9, Jan. 2022, doi: 10.1186/s13059-021-02572-z.</p>
+</div>
+</div>
+<div id="d-genome-information" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> 3D Genome Information<a href="chap:chap4.html#d-genome-information" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:3dfilter"></span>
+<img src="threeD_filter.png" alt="Filtering by p53RE location within 3D chromatin loops" width="50%" />
+<p class="caption">
+Figure 4.8: Filtering by p53RE location within 3D chromatin loops
+</p>
+</div>
+<p>The p53motifDB provides p53RE information integrated with four separate 3D chromatin data sets. The concept is to identify p53RE that participate in long-distance chromatin interactions, the type normally found between distal regulatory elements and gene promoters. Although the terminology can differ between assays, generally 3D chromatin data entry contains two genomic locations: a bait and an prey. The bait is the genomic location of interest to which you are hoping to find interactions with distal elements. These can also be called “anchors” or “viewpoints”. This is most evident in promoter capture-style experiments, where the bait/anchor/viewpoint is a promoter region. The concept is to then identify distal elements nearby the promoter in physical, 3D space in the nucleus, as proximity is thought to reflect biochemical function (such as an enhancer element interacting with a promoter to activate transcription).</p>
+<p>Consistent with the p53RE-centric data analysis in this database, the p53RE can be found in either the bait or prey region.</p>
+<p>As shown in Figure <a href="chap:chap4.html#fig:3dfilter">4.8</a>, the four dropdown boxes allow users to filter by the presence of a p53RE within a bait/prey interaction. Users can select YES if they only want to consider p53RE that are part of such interactions, NO if they would like to examine those with no known 3D interactions, or ANY if this is not a concern for their analysis.</p>
+<p>Importantly, users can gain additional information about the bait:prey relationships, including the location of both, cell line information, and other descriptive or quantitative information as described in Chapter <a href="chap:chap6.html#chap:chap6">6</a></p>
+<p>The following datasets are provided in the p53motifDB:</p>
+<p>TABLE 3</p>
+<table>
+<colgroup>
+<col width="60%" />
+<col width="40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>dataset</th>
+<th>citation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GeneHancer</td>
+<td>S. Fishilevich et al., “GeneHancer: genome-wide integration of enhancers and target genes in GeneCards,” Database, vol. 2017, p. bax028, Jan. 2017, doi: 10.1093/database/bax028.</td>
+</tr>
+<tr class="even">
+<td>Activity-by-Contact</td>
+<td>C. P. Fulco et al., “Activity-by-contact model of enhancer–promoter regulation from thousands of CRISPR perturbations,” Nature Genetics, vol. 51, no. 12, Art. no. 12, Dec. 2019, doi: 10.1038/s41588-019-0538-0.</td>
+</tr>
+<tr class="odd">
+<td>Capture MicroC from MCF10A</td>
+<td>This manuscript</td>
+</tr>
+<tr class="even">
+<td>Promoter Capture HiC from HCT116</td>
+<td>F. Serra et al., “p53 rapidly restructures 3D chromatin organization to trigger a transcriptional response,” Nat Commun, vol. 15, no. 1, p. 2821, Apr. 2024, doi: 10.1038/s41467-024-46666-1.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="genome-variation" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Genome Variation<a href="chap:chap4.html#genome-variation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Users can also use the basic filtering options to select p53RE with known DNA variants from the ClinVar or dbSNP156 databases. We only considered variation within the p53RE itself, as described in the accompanying manuscript.</p>
+<p>Using the dropdown menus, users can select whether or not the p53RE has a known variant (YES/NO), or whether sequence variation is not important to the filtering (EITHER). Additional information about genomic variation within the p53RE, including the variant, predicted effects, and other key information, can be obtained by downloading accessory datasets as explained in Chapter <a href="chap:chap6.html#chap:chap6">6</a>: Querying Additional Datasets</p>
+</div>
+<div id="other-genomic-variables" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Other Genomic Variables<a href="chap:chap4.html#other-genomic-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The final set of Basic Filters represent miscellaneous genomic features that may be of interest to users of the p53motifDB. Each filter provides basic functionality, asking users to choose whether or not to filter based on the feature (YES/NO), or whether the feature is not important for their analysis and shouldn’t be considered (ANY). “ANY” is selected by default.</p>
+<div id="intergenic-or-intragenic" class="section level3 hasAnchor" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> Intergenic or Intragenic?<a href="chap:chap4.html#intergenic-or-intragenic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This filter allows users to select whether their p53RE are located within gene bodies (intragenic) or outside of gene bodies (intergenic). By default, “ANY” is selected which means p53RE are displayed regardless of their location relative to genes. Gene models and locations were taken from the Ensembl v.111 release for hg38 reference genome.</p>
+</div>
+<div id="repetitive-elements" class="section level3 hasAnchor" number="4.6.2">
+<h3><span class="header-section-number">4.6.2</span> Repetitive Elements<a href="chap:chap4.html#repetitive-elements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Genomes contain multiple types of repetitive DNA sequences, including simple DNA repeats, microsatellites, and viral and transposable-element derived sources. Multiple publications have noted that p53RE can be found within these types of repetitive elements, and that p53 can regulate transcription and other genomic activities via binding to such repetitive elements.</p>
+<p>We surveyed p53RE locations within repetitive genomic elements using the <a href="http://www.repeatmasker.org">RepeatMasker</a> dataset hosted by the UCSC Genome Browser.</p>
+<p>Additional information about the repetitive elements, such as the type of element, can be obtained by downloading accessory data sets as explained in Chapter <a href="chap:chap6.html#chap:chap6">6</a>: Querying Additional Datasets</p>
+</div>
+<div id="encode-blacklist" class="section level3 hasAnchor" number="4.6.3">
+<h3><span class="header-section-number">4.6.3</span> ENCODE BlackList<a href="chap:chap4.html#encode-blacklist" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Genomic approaches, like ChIP-seq, require alignment to a reference genome. The Blacklist has been compiled containing regions of the human hg38 reference genome that are recurrently identified across multiple assays and for multiple antibodies/targets, suggesting anomalies in genome assembly. This information, along with the methods and rationale for selection of blacklists, can be found in a recent publication from the Boyle and Kundaje labs [1]. Thus, these regions are traditionally filtered from downstream analysis. Users can filter their p53RE by their location within (YES) or outside of (NO) blacklist regions. If these regions are not important for downstream analysis, users can ignore this filtering step and select ANY, which is the default setting.</p>
+<p>We strongly advise that users select NO on the Blacklist filter and only consider p53RE for which genomic assay data can be reliably mapped and reported (not in the blacklist regions).</p>
+<p>The current ENCODE Blacklist for hg38 can found at the <a href="https://github.com/Boyle-Lab/Blacklist">Boyle Lab GitHub Page</a>.</p>
+<p>[1] H. M. Amemiya, A. Kundaje, and A. P. Boyle, “The ENCODE Blacklist: Identification of Problematic Regions of the Genome,” Sci Rep, vol. 9, no. 1, p. 9354, Jun. 2019, doi: 10.1038/s41598-019-45839-z.</p>
+</div>
+<div id="potential-cg-methylation-sites" class="section level3 hasAnchor" number="4.6.4">
+<h3><span class="header-section-number">4.6.4</span> Potential CG Methylation Sites<a href="chap:chap4.html#potential-cg-methylation-sites" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Recent evidence suggests that DNA methylation in the CG context can influence p53 interactions with the genome in interesting ways. The influence of CG methylation depends on the position of the CG within the p53RE. Users can select whether the p53RE contains a potential site of CG methylation. Selecting YES does not mean the p53RE contains experimentally-determined DNA methylation, rather that a CG is present as a potential target of methylation.</p>
+<p>[1] J. F. Kribelbauer et al., “Quantitative Analysis of the DNA Methylation Sensitivity of Transcription Factor Complexes,” Cell Reports, vol. 19, no. 11, pp. 2383–2395, Jun. 2017, doi: 10.1016/j.celrep.2017.05.069.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap:chap3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap:chap5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
